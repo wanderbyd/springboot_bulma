@@ -2,55 +2,59 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>회원 등록</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Bootstrap Datepicker CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <title>New Member</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
 </head>
 <body>
+		<section class="section">
     <div class="container">
-        <h1>회원 등록 하기</h1>
+      <h3 class="title">New Member</h3>
         <form th:action="@{/member/create}" method="post">
-            <div class="form-group">
-                <label for="memberId">회원아이디:</label>
-                <input type="text" id="memberId" name="memberId" class="form-control" required/>
-            </div>
-            <div class="form-group">
-                <label for="joinDate">가입일자:</label>
-                <!-- Input field for joindate with DatePicker -->
-                <input type="text" id="joinDate" name="joinDate" class="form-control datepicker" required/>
-            </div>
-            <div class="form-group">
-                <label for="password">암호:</label>
-                <input type="text" id="password" name="password" class="form-control" required/>
-            </div>
-            <div class="form-group">
-                <label for="phone">전화번호:</label>
-                <input type="text" id="phone" name="phone" class="form-control" required/>
-            </div>
-            <div class="form-group">
-                <label for="isWithdraw">탈퇴여부:</label>
-                <div>
-                    <input type="radio" id="withdrawNo" name="isWithdraw" value="NO" required checked/>
+        	<div class="field">
+                <label for="memberId">ID:</label>
+                <div class="control">
+                <input type="text" id="memberId" name="memberId" class="form-control" style="max-width: 500px;"required/>
+         	</div>
+
+				</div>
+				<div class="field">
+                <label for="joinDate">Join Date:</label>
+              	<div class="control">
+                <input type="text" id="joinDate" name="joinDate" class="form-control datepicker" style="max-width: 500px;"required/>
+         		</div>
+				</div>
+				<div class="field">
+                <label for="password">Password:</label>
+                	<div class="control">
+                <input type="text" id="password" name="password" class="form-control"style="max-width: 500px;" required/>
+          	</div>
+				</div>
+				<div class="field">
+                <label for="phone">Phone Number:</label>
+                <div class="control">
+                <input type="text" id="phone" name="phone" class="form-control"style="max-width: 500px;" required/>
+         		</div>
+				</div>
+				<div class="field">
+                <label for="isWithdraw">Delete Account:</label>
+            		<div class="control">
+                    <input type="radio" id="withdrawNo" name="isWithdraw" value="NO"style="max-width: 500px;" required checked/>
                     <label for="withdrawNo">NO</label>
-                </div>
-                <div>
-                    <input type="radio" id="withdrawYes" name="isWithdraw" value="YES" required />
+            
+                    <input type="radio" id="withdrawYes" name="isWithdraw" value="YES"style="max-width: 500px;" required />
                     <label for="withdrawYes">YES</label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">등록하기</button>
-        </form>
-        <br>
-        <a href="/member/">회원목록가기</a>
+          	<div class="field is-grouped">
+					<div class="control">
+            <button type="submit" class="button is-primary">Create</button>
+       </div> 
+   
+        <div class="control">
+        <a class="button is-success" href="/member/">Go back to Member List</a>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    </div>
+	</section>
     <script>
         // Initialize the DatePicker
         $(document).ready(function () {
